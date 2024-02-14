@@ -18,7 +18,8 @@ Widget build(BuildContext context) {
         primary: Colors.white,
         secondary: Color.fromARGB(255, 217, 217, 217),
         tertiary: Color.fromARGB(255, 255, 0, 0),
-        inversePrimary: Color.fromARGB(255, 0, 255, 0)
+        inversePrimary: Color.fromARGB(255, 0, 255, 0),
+        onSecondary: Color.fromARGB(255, 171, 171, 171)
       )
     ),
     home: HomePage(),
