@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final TextEditingController search = TextEditingController();  
-  late Future<Map<String, List<dynamic>>> data;
+  Future<Map<String, List<dynamic>>> data = Future.value({});
 
   Future<Map<String, List>> getArr() async {
     const String link ='http://10.0.2.2:5000/';
@@ -24,6 +24,9 @@ class _HomePageState extends State<HomePage> {
     } 
     final jsonResponse = jsonDecode(response.body);
     print('the data in async fn $jsonResponse');
+    setState(() {
+      data = jsonResponse;
+    });
     return jsonResponse;
     } catch(e) {
       throw(e).toString();
@@ -31,9 +34,8 @@ class _HomePageState extends State<HomePage> {
   }
   @override
   void initState() {
-    data = getArr();
-    print('this is data in initState $data');
     super.initState();
+    getArr();
   }
 
 
